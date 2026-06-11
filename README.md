@@ -142,10 +142,12 @@ Uploaded files are organized under:
 ## Deployment
 
 - Use MongoDB Atlas or Railway MongoDB for `MONGO_URI`.
-- Deploy API to Render/Railway as a Node service.
-- Deploy frontend to Vercel/Render static site with `VITE_API_URL`.
+- Backend Render URL/API URL: `https://construction-ou63.onrender.com`.
+- Frontend Render static URL: `https://construction-1-3qus.onrender.com`.
+- Backend env `CLIENT_URL`: `https://construction-1-3qus.onrender.com,http://localhost:5173,http://127.0.0.1:5173`.
+- Frontend env `VITE_API_URL`: `https://construction-ou63.onrender.com`.
 - Store `JWT_SECRET`, `JWT_REFRESH_SECRET`, `EMAIL_USER`, and `EMAIL_PASS` as provider secrets.
-- `render.yaml` is included as a deployment starting point.
+- `render.yaml` is configured for a Render Node backend service and a Render static frontend service.
 
 ## Verification
 

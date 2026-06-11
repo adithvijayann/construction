@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: construction-log-api
+    name: construction-ou63
     env: node
     rootDir: server
     plan: free
@@ -11,10 +11,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: CLIENT_URL
-        fromService:
-          type: web
-          name: construction-log-client
-          property: url
+        value: https://construction-1-3qus.onrender.com,http://localhost:5173,http://127.0.0.1:5173
+      - key: API_PUBLIC_URL
+        value: https://construction-ou63.onrender.com
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
@@ -31,9 +30,10 @@ services:
         value: 15000
 
   - type: web
-    name: construction-log-client
+    name: construction-frontend
     env: static
     rootDir: client
+    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
@@ -42,7 +42,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: construction-log-api
-          property: url
+        value: https://construction-ou63.onrender.com

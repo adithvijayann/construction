@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export const API_ORIGIN = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+const LOCAL_API_ORIGIN = "http://localhost:5000";
+const PRODUCTION_API_ORIGIN = "https://construction-ou63.onrender.com";
+const fallbackApiOrigin = import.meta.env.DEV ? LOCAL_API_ORIGIN : PRODUCTION_API_ORIGIN;
+
+export const API_ORIGIN = (import.meta.env.VITE_API_URL || fallbackApiOrigin).replace(/\/$/, "");
 
 export const api = axios.create({
   baseURL: `${API_ORIGIN}/api`,
