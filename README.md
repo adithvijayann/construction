@@ -67,13 +67,13 @@ EMAIL_PASS=your-google-app-password
 EMAIL_SEND_TIMEOUT_MS=15000
 ```
 
-Frontend local development: set this in `client/.env.development`:
+Frontend: set this in `client/.env`:
 
 ```env
 VITE_API_URL=http://localhost:5000
 ```
 
-Frontend production/Render: set this in `client/.env.production` or the Render static site environment:
+For Render, set the same variable in the frontend static site environment:
 
 ```env
 VITE_API_URL=https://construction-ou63.onrender.com

@@ -1,12 +1,17 @@
 import axios from "axios";
 
 const normalizeApiOrigin = (value = "") => value.trim().replace(/\/+$/, "").replace(/\/api$/, "");
+const isLocalApiOrigin = (value) => /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(value);
 
 export const API_ORIGIN = normalizeApiOrigin(import.meta.env.VITE_API_URL);
 export const API_BASE_URL = `${API_ORIGIN}/api`;
 
 if (!API_ORIGIN) {
   throw new Error("VITE_API_URL is not configured. Set it to the backend origin, for example https://construction-ou63.onrender.com.");
+}
+
+if (import.meta.env.PROD && isLocalApiOrigin(API_ORIGIN)) {
+  throw new Error("Production VITE_API_URL cannot be localhost. Set it to https://construction-ou63.onrender.com.");
 }
 
 export const api = axios.create({

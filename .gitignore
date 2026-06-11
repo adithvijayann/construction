@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 .env.*
+!client/.env
 uploads/
 coverage/
 npm-debug.log*
