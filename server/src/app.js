@@ -26,18 +26,34 @@ const __dirname = path.dirname(__filename);
 
 export const app = express();
 
+const defaultAllowedOrigins = [
+  "https://construction-1-3qus.onrender.com",
+  "https://construction-ou63.onrender.com",
+  "http://localhost:5173",
+  "http://127.0.0.1:5173"
+];
+const normalizeOrigin = (origin = "") => origin.trim().replace(/\/+$/, "");
 const allowedOrigins = new Set(
-  env.CLIENT_URL.split(",")
-    .map((origin) => origin.trim())
+  [...env.CLIENT_URL.split(","), ...defaultAllowedOrigins]
+    .map(normalizeOrigin)
     .filter(Boolean)
 );
-allowedOrigins.add("http://localhost:5173");
-allowedOrigins.add("http://127.0.0.1:5173");
+const allowedOriginList = [...allowedOrigins].join(", ");
 
 const isLocalDevOrigin = (origin) => {
   if (isProduction || !origin) return false;
   return /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/.test(origin);
 };
+
+const getCorsOrigin = (origin) => {
+  const normalizedOrigin = normalizeOrigin(origin);
+  if (!normalizedOrigin || allowedOrigins.has(normalizedOrigin) || isLocalDevOrigin(normalizedOrigin)) {
+    return true;
+  }
+  return false;
+};
+
+console.log(`Allowed CORS origins: ${allowedOriginList}`);
 
 app.set("trust proxy", 1);
 app.use(
@@ -51,10 +67,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.has(origin) || isLocalDevOrigin(origin)) {
-        return callback(null, true);
-      }
-      return callback(null, false);
+      return callback(null, getCorsOrigin(origin));
     },
     credentials: true
   })
