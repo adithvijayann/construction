@@ -67,10 +67,16 @@ EMAIL_PASS=your-google-app-password
 EMAIL_SEND_TIMEOUT_MS=15000
 ```
 
-Frontend: set this in `client/.env`:
+Frontend local development: set this in `client/.env.development`:
 
 ```env
 VITE_API_URL=http://localhost:5000
+```
+
+Frontend production/Render: set this in `client/.env.production` or the Render static site environment:
+
+```env
+VITE_API_URL=https://construction-ou63.onrender.com
 ```
 
 Keep the real MongoDB URI and Gmail app password in env files or your deployment provider secrets, not in source control.

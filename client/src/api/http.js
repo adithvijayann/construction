@@ -1,13 +1,16 @@
 import axios from "axios";
 
-const LOCAL_API_ORIGIN = "http://localhost:5000";
-const PRODUCTION_API_ORIGIN = "https://construction-ou63.onrender.com";
-const fallbackApiOrigin = import.meta.env.DEV ? LOCAL_API_ORIGIN : PRODUCTION_API_ORIGIN;
+const normalizeApiOrigin = (value = "") => value.trim().replace(/\/+$/, "").replace(/\/api$/, "");
 
-export const API_ORIGIN = (import.meta.env.VITE_API_URL || fallbackApiOrigin).replace(/\/$/, "");
+export const API_ORIGIN = normalizeApiOrigin(import.meta.env.VITE_API_URL);
+export const API_BASE_URL = `${API_ORIGIN}/api`;
+
+if (!API_ORIGIN) {
+  throw new Error("VITE_API_URL is not configured. Set it to the backend origin, for example https://construction-ou63.onrender.com.");
+}
 
 export const api = axios.create({
-  baseURL: `${API_ORIGIN}/api`,
+  baseURL: API_BASE_URL,
   withCredentials: true
 });
 
