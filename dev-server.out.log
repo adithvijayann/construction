@@ -1,0 +1,191 @@
+
+> construction-site-daily-log@1.0.0 dev
+> concurrently "npm run dev --workspace server" "npm run dev --workspace client"
+
+[1] 
+[1] > @construction-log/client@1.0.0 dev
+[1] > vite --host 0.0.0.0
+[1] 
+[0] 
+[0] > @construction-log/server@1.0.0 dev
+[0] > nodemon src/server.js
+[0] 
+[0] [33m[nodemon] 3.1.14[39m
+[0] [33m[nodemon] to restart at any time, enter `rs`[39m
+[0] [33m[nodemon] watching path(s): *.*[39m
+[0] [33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[1] Port 5173 is in use, trying another one...
+[1] 
+[1]   [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m418[22m[2m[0m ms[22m
+[1] 
+[1]   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5174[22m/[39m
+[1]   [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.6:[1m5174[22m/[39m
+[0] MongoDB connected
+[0] Failed to start API
+[0] MongoServerError: ns does not exist: taskdb.contractors
+[0]     at Connection.sendCommand (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\cmap\connection.js:306:27)
+[0]     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[0]     at async Connection.command (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\cmap\connection.js:334:26)
+[0]     at async Server.command (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\sdam\server.js:194:29)
+[0]     at async tryOperation (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\operations\execute_operation.js:213:32)
+[0]     at async executeOperation (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+[0]     at async ListIndexesCursor._initialize (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\cursor\list_indexes_cursor.js:27:26)
+[0]     at async ListIndexesCursor.cursorInit (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\cursor\abstract_cursor.js:632:27)
+[0]     at async ListIndexesCursor.fetchBatch (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\cursor\abstract_cursor.js:666:13)
+[0]     at async ListIndexesCursor.next (C:\Users\user\OneDrive\Desktop\construction\node_modules\mongodb\lib\cursor\abstract_cursor.js:342:17) {
+[0]   errorLabelSet: Set(0) {},
+[0]   errorResponse: {
+[0]     ok: 0,
+[0]     errmsg: 'ns does not exist: taskdb.contractors',
+[0]     code: 26,
+[0]     codeName: 'NamespaceNotFound',
+[0]     '$clusterTime': {
+[0]       clusterTime: new Timestamp({ t: 1781094628, i: 7 }),
+[0]       signature: [Object]
+[0]     },
+[0]     operationTime: new Timestamp({ t: 1781094628, i: 7 })
+[0]   },
+[0]   ok: 0,
+[0]   code: 26,
+[0]   codeName: 'NamespaceNotFound',
+[0]   '$clusterTime': {
+[0]     clusterTime: new Timestamp({ t: 1781094628, i: 7 }),
+[0]     signature: {
+[0]       hash: Binary.createFromBase64('RqdobHeQPYewPxf3IoryyujA2fg=', 0),
+[0]       keyId: new Long('7615642873177833476')
+[0]     }
+[0]   },
+[0]   operationTime: new Timestamp({ t: 1781094628, i: 7 })
+[0] }
+[0] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] Default admin created: admin@gmail.com
+[0] API listening on port 5000
+[0] [0mGET /health [32m200[0m 4.465 ms - 94[0m
+[0] ApiError: Authentication required
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/middleware/auth.js:21:21
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/utils/asyncHandler.js:2:19
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:149:13)
+[0]     at Route.dispatch (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:119:3)
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:284:15
+[0]     at Function.process_params (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:346:12)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:280:10)
+[0]     at Function.handle (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:175:3) {
+[0]   statusCode: 401,
+[0]   details: null
+[0] }
+[0] [0mGET /api/auth/me [33m401[0m 3.851 ms - -[0m
+[0] ApiError: Authentication required
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/middleware/auth.js:21:21
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/utils/asyncHandler.js:2:19
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:149:13)
+[0]     at Route.dispatch (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:119:3)
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:284:15
+[0]     at Function.process_params (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:346:12)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:280:10)
+[0]     at Function.handle (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:175:3) {
+[0]   statusCode: 401,
+[0]   details: null
+[0] }
+[0] [0mGET /api/auth/me [33m401[0m 1.275 ms - -[0m
+[0] ApiError: Refresh token required
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/routes/auth.routes.js:70:23
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/utils/asyncHandler.js:2:19
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:149:13)
+[0]     at Route.dispatch (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:119:3)
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:284:15
+[0]     at Function.process_params (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:346:12)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:280:10)
+[0]     at Function.handle (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:175:3) {
+[0]   statusCode: 401,
+[0]   details: null
+[0] }
+[0] ApiError: Refresh token required
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/routes/auth.routes.js:70:23
+[0]     at file:///C:/Users/user/OneDrive/Desktop/construction/server/src/utils/asyncHandler.js:2:19
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:149:13)
+[0]     at Route.dispatch (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\route.js:119:3)
+[0]     at Layer.handle [as handle_request] (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\layer.js:95:5)
+[0]     at C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:284:15
+[0]     at Function.process_params (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:346:12)
+[0]     at next (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:280:10)
+[0]     at Function.handle (C:\Users\user\OneDrive\Desktop\construction\node_modules\express\lib\router\index.js:175:3) {
+[0]   statusCode: 401,
+[0]   details: null
+[0] }
+[0] [0mPOST /api/auth/refresh [33m401[0m 1.415 ms - -[0m
+[0] [0mPOST /api/auth/refresh [33m401[0m 0.875 ms - -[0m
+[0] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[1] [2m6:16:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Projects.jsx[22m
+[1] [2m6:17:06 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/ProjectDetail.jsx[22m
+[1] [2m6:17:17 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[1] [2m6:17:28 PM[22m [36m[1m[vite][22m[39m [32m.env changed, restarting server...[39m
+[1] [2m6:17:28 PM[22m [36m[1m[vite][22m[39m server restarted.
+[0] [0mGET /health [32m200[0m 4.947 ms - 94[0m
+[0] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[1] [2m6:39:49 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Projects.jsx[22m
+[1] [2m6:39:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/ProjectDetail.jsx[22m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] Failed to start API
+[0] Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.u9vvvsx.mongodb.net
+[0]     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:275:17) {
+[0]   errno: undefined,
+[0]   code: 'ECONNREFUSED',
+[0]   syscall: 'querySrv',
+[0]   hostname: '_mongodb._tcp.cluster0.u9vvvsx.mongodb.net'
+[0] }
+[0] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[1] [2m7:16:34 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Profile.jsx[22m
+[1] [2m7:17:00 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Projects.jsx[22m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] MongoDB connected
+[0] API listening on port 5000
+[0] [0mGET /health [32m200[0m 8.419 ms - 94[0m

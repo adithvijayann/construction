@@ -1,0 +1,23 @@
+{
+  "name": "construction-site-daily-log",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MERN daily site log platform for attendance, materials, photos, and client progress reports.",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "start": "npm run start --workspace server",
+    "build": "npm run build --workspace client",
+    "seed": "npm run seed --workspace server",
+    "check": "npm run check --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
